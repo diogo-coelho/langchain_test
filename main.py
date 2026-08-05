@@ -1,4 +1,4 @@
-from openai import OpenAI
+from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 import os
 
@@ -9,16 +9,13 @@ numero_dias = 7
 numero_criancas = 2
 atividade = "aventura ao ar livre"
 
-prompt = f"Crie um roteiro de viagem de {numero_dias} dias, para uma família com {numero_criancas} crianças, que gosta de {atividade}"
+prompt = f"Crie um roteiro de viagens no Brasil, para um período de {numero_dias} dias, para uma família com {numero_criancas} crianças, que busca atividades relacionadas a {atividade}."
 
+modelo = ChatOpenAI(
+  model="gpt-4o-mini",
+  temperature=0.5,
+  api_key=api_key
+)
 
-cliente = OpenAI(api_key=api_key)
-
-resposta = cliente.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {"role": "system", "content": "Você é um assistente de viagem."},
-        {"role": "user", "content": prompt }
-    ])
-
-print(resposta)
+resposta = modelo.invoke(prompt)
+print(resposta.content)
