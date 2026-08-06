@@ -1,6 +1,3 @@
-<img width="989" alt="image" src="https://github.com/user-attachments/assets/c140d5f9-a165-44d0-80b9-592fdbf16e03" />
-
-
 # LangChain e Python: criando ferramentas com a LLM OpenAI
 
 ## ⚙️ Guia de Configuração
@@ -32,5 +29,5 @@ pip install -r requirements.txt
 
 Crie ou edite o arquivo `.env` adicionando sua chave de API da OpenAI:
 ```bash
-OPENAI_API_KEY="SUA_CHAVE_DE_API"
+API_OPEN_AI_TEST_KEY="SUA_CHAVE_DE_API"
 ```
